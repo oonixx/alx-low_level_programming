@@ -1,36 +1,44 @@
 #include <stdio.h>
-#include <stdlib.h>
 
 /**
- * main - returns a combination of number
- * Return: return 0 if successful
+ * main - Prints numbers between 012 to 789.
+ *
+ * Return: Always 0 (Success)
  */
-
 int main(void)
 {
-	int i, j;
-	
-	for (i = 0; i < 100; i++)
+	int i, e, g;
+
+	i = 48;
+	e = 48;
+	g = 48;
+
+	while (e < 58)
 	{
-		for (j = 0; j < 100; j++)
+		i = 48;
+		while (i < 58)
 		{
-			if (i < j)
+			g = 48;
+			while (g < 58)
 			{
-				putchar((i / 10) + 48);
-				putchar((i % 10) + 48);
-				putchar(' ');
-				putchar((j / 10) + 48);
-				putchar((j % 10) + 48);
-				if (i != 98 || j != 99)
+				if (e != i && e != g && i != g && e < i && i < g)
 				{
+					putchar(e);
+					putchar(i);
+					putchar(g);
+					if (i == 56 && e == 55 && g == 57)
+					{
+						break;
+					}
 					putchar(',');
 					putchar(' ');
 				}
+				g++;
 			}
+			i++;
 		}
+		e++;
 	}
-	
 	putchar('\n');
-
 	return (0);
 }
