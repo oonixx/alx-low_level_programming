@@ -2,22 +2,22 @@
 /**
  * insert_dnodeint_at_index -inserts new node in the given position.
  * @h: The pointer to list pinter.
- * @indx: The unsigned number.
+ * @idx: The unsigned number.
  * @n: The number.
  * Return: Node in succes or Null in error.
  */
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int indx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *new_node, *current;
 	if (h == NULL)
 		return (NULL);
-	if (indx == 0)
+	if (idx == 0)
 		return (add_dnodeint(h, n));
 	current = *h;
-	while (current != NULL && indx > 1)
+	while (current != NULL && idx > 1)
 	{
 		current = current->next;
-		indx--;
+		idx--;
 	}
 
 	if (current == NULL)
