@@ -1,10 +1,10 @@
-#include "lists.h"
+i#include "lists.h"
 
 /**
  * print_dlistint - prints all the elements of 
- * dlistint_t list
+ * dlistint_t list.
  *
- * @h: The head of the list.
+ * @h: The head of the list
  * Return: Number of nodes.
  */
 size_t print_dlistint(const dlistint_t *h)
