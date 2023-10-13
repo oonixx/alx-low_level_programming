@@ -1,35 +1,55 @@
 #include "lists.h"
+
 /**
- * insert_dnodeint_at_index -inserts a new node in the given position.
- * @h: The pointer to list pinter.
- * @ix: The unsigned number.
- * @n: The number.
- * Return: Node in succes or Null in fail.
+ * insert_dnodeint_at_index - inserts a new node at
+ * the given position
+ *
+ * @h: The head of the list
+ * @idx: The index of the new node
+ * @n: The value of the new node
+ * Return: the address of the new node , NULL if it failed
  */
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int ix, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *new_node, *current;
-	if (h == NULL)
-		return (NULL);
-	if (ix == 0)
-		return (add_dnodeint(h, n));
-	current = *h;
-	while (current != NULL && ix > 1)
-	{
-		current = current->next;
-		ix--;
-	}
+    dlistint_t *new;
+    dlistint_t *head;
+    unsigned int ii; // Change 'i' to 'ii'
 
-	if (current == NULL)
-		return (NULL);
+    new = NULL;
+    if (idx == 0)
+        new = add_dnodeint(h, n);
+    else
+    {
+        head = *h;
+        ii = 1; // Change 'i' to 'ii'
+        if (head != NULL)
+            while (head->prev != NULL)
+                head = head->prev;
+        while (head != NULL)
+        {
+            if (ii == idx) // Change 'i' to 'ii'
+            {
+                if (head->next == NULL)
+                    new = add_dnodeint_end(h, n);
+                else
+                {
+                    new = malloc(sizeof(dlistint_t));
+                    if (new != NULL)
+                    {
+                        new->n = n;
+                        new->next = head->next;
+                        new->prev = head;
+                        head->next->prev = new;
+                        head->next = new;
+                    }
+                }
+                break;
+            }
+            head = head->next;
+            ii++; // Change 'i' to 'ii'
+        }
+    }
 
-	if (current->next == NULL)
-		return (add_dnodeint_end(h, n));
-
-	new_node = add_dnodeint(&(current->next), n);
-	if (new_node == NULL)
-		return (NULL);
-
-	new_node->prev = current;
-	return (new_node);
+    return (new);
 }
+
