@@ -1,23 +1,23 @@
 #include "lists.h"
 /**
- * insert_dnodeint_at_index -inserts new node in the given position.
+ * insert_dnodeint_at_index -inserts a new node in the given position.
  * @h: The pointer to list pinter.
- * @idx: The unsigned number.
+ * @ix: The unsigned number.
  * @n: The number.
- * Return: Node in succes or Null in error.
+ * Return: Node in succes or Null in fail.
  */
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int ix, int n)
 {
 	dlistint_t *new_node, *current;
 	if (h == NULL)
 		return (NULL);
-	if (idx == 0)
+	if (ix == 0)
 		return (add_dnodeint(h, n));
 	current = *h;
-	while (current != NULL && idx > 1)
+	while (current != NULL && ix > 1)
 	{
 		current = current->next;
-		idx--;
+		ix--;
 	}
 
 	if (current == NULL)
