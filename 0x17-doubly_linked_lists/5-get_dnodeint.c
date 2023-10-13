@@ -1,18 +1,18 @@
 #include "lists.h"
 /**
- * get_dnodeint_at_idx - Get node at idx.
+ * get_dnodeint_at_indx - Get node at indx.
  * @head: The pointer to dlistint_t
- * @idx: The unsigned number
+ * @indx: The unsigned number
  * Return: returns nth node of a dlistint_t linked list.
  */
-dlistint_t *get_dnodeint_at_index(dlistint_t *head, unsigned int idx)
+dlistint_t *get_dnodeint_at_indx(dlistint_t *head, unsigned int indx)
 {
 	while (head)
 	{
-		if (idx == 0)
+		if (indx == 0)
 			return (head);
 		head = head->next;
-		idx--;
+		indx--;
 	}
 	return (NULL);
 }
