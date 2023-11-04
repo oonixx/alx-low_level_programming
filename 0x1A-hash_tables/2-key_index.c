@@ -1,4 +1,4 @@
-#include "h_tables.h"
+#include "hash_tables.h"
 
 /**
  * key_index - Get an index at which a key or value pair should
