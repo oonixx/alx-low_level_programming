@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "../h_tables.h"
+#include "../hash_tables.h"
 
 /**
  * main - Check code
